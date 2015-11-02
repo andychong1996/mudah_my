@@ -1,0 +1,15 @@
+<header>
+  <h1>Product to sell:</h1>
+</header>
+
+<div>
+<form action="/products/create" method="post">
+  <label>Product Name: </label>
+  <input type="text" name="product[name]" placeholder="insert product's name here" required>
+  <br><br>
+  <label>Information: </label>
+  <br>
+  <textarea name="product[information]" rows="8" cols="40" placeholder="Insert product's information here."required></textarea>
+  <input type="submit" value="Sell!">
+</form>
+</div>

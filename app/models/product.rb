@@ -3,5 +3,5 @@ class Product < ActiveRecord::Base
 	belongs_to :user
 	has_many :favourites
 	has_many :products_categories
-	has_many :categories, through :products_categories
+	has_many :categories, through: :products_categories
 end

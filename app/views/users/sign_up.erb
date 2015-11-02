@@ -1,0 +1,37 @@
+<header>
+  <h1>Say Hi To Mudah Marketplace</h1>
+</header>
+
+<div>
+  <form id="sign_up_form" action="/users/create" method="post">
+    <p>
+      <label>First Name: </label>
+      <input type="text" name="user[first_name]" placeholder="First Name" data-validation="length" data-validation-length="min2" required>
+    </p>
+    <p>
+      <label>Last Name: </label>
+      <input type="text" name="user[last_name]" placeholder="Last Name" data-validation="length" data-validation-length="min2" >
+    </p>
+    <p>
+      <label>User Name: </label>
+      <input type="text" name="user[user_name]" placeholder="User Name" data-validation-allowing="-_"
+      data-validation="length alphanumeric" data-validation-length="5-20" >
+    </p>
+    <p>
+      <label>Email: </label>
+      <input type="email" name="user[email]" placeholder="Email Address" data-validation="email" data-validation-error-msg="Please enter a valid e-mail" required>
+    </p>
+    <p>
+      <label>Password: </label>
+      <input type="password" name="user[password]" placeholder="Password" data-validation="length" data-validation-length="5-32">
+    </p>
+    <p>
+      <label>Confirm Password: </label>
+      <input type="password" name="password" placeholder="Retype Password" data-validation="confirmation" data-validation-confirm="user[password]">
+    </p>
+    <p>
+      <input type="submit" value="Sign Up">
+    </p>
+  </form>
+
+</div>
