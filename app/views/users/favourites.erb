@@ -1,0 +1,11 @@
+<header>
+  <h1>Your favourited products:</h1>
+</header>
+
+<div>
+  <%products = Product.where(id: current_user.favourites.pluck(:product_id))%>
+  <%products.each do |product|%>
+  <%@product = product%>
+  <%=erb :"products_loop"%>
+  <%end%>
+</div>

@@ -3,11 +3,18 @@
   <h2><%= @product.name %></h2>
   <span>Seller: <%= @product.user.first_name %></span>
   <%if logged_in?%>
-  <%if @product.user.id != current_user.id%>
-    <form action="index.html" method="post">
-      <input type="submit" name="name" value="Favourite it!">
-    </form>
-  <%end%>
+    <%if @product.user.id != current_user.id%>
+      <%if current_user.favourites.exists?(product_id: @product.id)%>
+        <form action="/favourites/<%=@product.id%>" method="post">
+          <input type="hidden" name="_method" value="delete" />
+          <input type="submit" name="name" value="Unfavourite it!">
+        </form>
+      <%else%>
+        <form action="/favourites/<%=@product.id%>/new" method="post">
+          <input type="submit" name="name" value="Favourite it!">
+        </form>
+      <%end%>
+    <%end%>
     <% if @product.user.id == current_user.id %>
       <span>
         <a href="/products/<%= @product.id %>/edit"><button type="button" name="edit_product_button">EDIT</button></a>

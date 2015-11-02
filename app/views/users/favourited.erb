@@ -1,0 +1,16 @@
+<header>
+  <h1>Your products favourited: </h1>
+</header>
+
+<div>
+  <%Favourite.all.each do |favourite|%>
+    <%if favourite.user.id != current_user.id%>
+      <%product = Product.find(favourite.product_id)%>
+      <%=product.name%>
+      <br>
+      <%people = User.find(favourite.user_id)%>
+      <br>
+      Person favourited your product: <%=people.first_name%>
+    <%end%>
+  <%end%>
+</div>

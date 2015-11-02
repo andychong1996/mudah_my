@@ -13,8 +13,9 @@
   <body>
     <a href="/users/<%=current_user.id%>/home"><button type="button" name="home_button">Home</button></a>
     <a href="/users/<%=current_user.id%>/products"><button type="button" name="button">Your Products</button></a>
+    <a href="/users/products/favourited"><button type="button" name="button">People favourited your products</button></a>
     <a href="/products/new"><button type="button" name="new_question_button">Sell Product</button></a>
-    <a href="/favorites"><button type="button" name="user_favorite_button">Your Favourites</button></a>
+    <a href="/users/<%=current_user.id%>/favorites"><button type="button" name="user_favorite_button">Your Favourites</button></a>
     <a href="/logout"><button type="text" name="logout_button">Log Out</button></a>
     <%=yield%>
   </body>
