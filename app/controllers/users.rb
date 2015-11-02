@@ -11,7 +11,6 @@ get '/' do
 end
 
 get '/users/:id/home' do
-
   erb :"users/home"
 end
 
@@ -22,4 +21,8 @@ post '/users/create' do
   else
     redirect to '/users/signup'
   end
+end
+
+get '/users/:id/products' do
+  erb :"users/user_products"
 end

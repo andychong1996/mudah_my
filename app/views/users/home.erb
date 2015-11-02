@@ -3,7 +3,14 @@
 </header>
 
 <div>
+  <h2>Products:</h2>
 
+  <ol>
+    <% Product.all.each do |product|%>
+        <% @product = product %>
+        <%= erb :products_loop %>
+    <% end %>
+  </ol>
 </div>
 
 <footer>

@@ -1,0 +1,16 @@
+<header>
+  <h1>Edit product:</h1>
+</header>
+
+<div>
+  <form class="" action="/products/<%= @product.id %>" method="post">
+    <input type="hidden" name="_method" value="put" />
+    <label>Product's name: </label>
+    <input type="text" name="product[name]" value="<%= @product.name %>">
+    <br><br>
+    <label>Product's information: </label>
+    <br>
+    <textarea name="product[information]" rows="8" cols="40"><%= @product.information %></textarea>
+    <input type="submit" name="name" value="Submit">
+  </form>
+</div>

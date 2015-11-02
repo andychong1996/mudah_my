@@ -1,17 +1,12 @@
 <header>
-  <h1>Hi, Welcome to Mudah Marketplace!</h1>
+  <h1>Your selling products:</h1>
 </header>
 
 <div>
-  <h2>Products:</h2>
   <ol>
-    <% Product.all.each do |product|%>
+    <% current_user.products.each do |product|%>
         <% @product = product %>
         <%= erb :products_loop %>
     <% end %>
   </ol>
-
 </div>
-
-<footer>
-</footer>

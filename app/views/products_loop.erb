@@ -1,0 +1,26 @@
+<li>
+
+  <h2><%= @product.name %></h2>
+  <span>Seller: <%= @product.user.first_name %></span>
+  <%if logged_in?%>
+  <%if @product.user.id != current_user.id%>
+    <form action="index.html" method="post">
+      <input type="submit" name="name" value="Favourite it!">
+    </form>
+  <%end%>
+    <% if @product.user.id == current_user.id %>
+      <span>
+        <a href="/products/<%= @product.id %>/edit"><button type="button" name="edit_product_button">EDIT</button></a>
+        <form action="/products/<%=@product.id%>" method="post">
+          <input type="hidden" name="_method" value="delete" />
+          <input type="submit" name="name" value="DELETE">
+        </form>
+      </span>
+    <% end %>
+  <%end%>
+  <h3>Description:</h3>
+  <p>
+    <%= @product.information %>
+  </p>
+
+</li>
