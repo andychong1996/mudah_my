@@ -19,6 +19,7 @@ end
 put '/products/:id' do
   current_product = Product.find(params[:id])
   current_product[:name] = params[:product][:name]
+  current_product[:price] = params[:product][:price]
   current_product[:information] = params[:product][:information]
   if current_product.save
     redirect to '/'

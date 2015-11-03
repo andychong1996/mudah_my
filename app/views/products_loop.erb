@@ -1,7 +1,10 @@
 <li>
-
+  <p>
+    --------------------------------------------------------------------------
+  </p>
   <h2><%= @product.name %></h2>
   <span>Seller: <%= @product.user.first_name %></span>
+  <p>Price: RM<%=@product.price%></p>
   <%if logged_in?%>
     <%if @product.user.id != current_user.id%>
       <%if current_user.favourites.exists?(product_id: @product.id)%>
@@ -29,5 +32,7 @@
   <p>
     <%= @product.information %>
   </p>
-
+  <p>
+    --------------------------------------------------------------------------
+  </p>
 </li>

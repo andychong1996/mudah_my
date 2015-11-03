@@ -3,14 +3,18 @@
 </header>
 
 <div>
-  <%Favourite.all.each do |favourite|%>
-    <%if favourite.user.id != current_user.id%>
-      <%product = Product.find(favourite.product_id)%>
-      <%=product.name%>
-      <br>
-      <%people = User.find(favourite.user_id)%>
-      <br>
-      Person favourited your product: <%=people.first_name%>
-    <%end%>
+  <%@products.each do |product|%>
+    <%@product = product%>
+    <%=erb :"products_loop"%>
+    <ol>
+      <h3>Users:</h3>
+      <%users = User.where(id: Favourite.where(product_id: product.id).pluck(:user_id))%>
+      <%users.each do |user|%>
+        <p>
+          <%= user.first_name.capitalize+" "+user.last_name.capitalize %>
+        </p>
+        __________________________________________
+      <%end%>
+    </ol>
   <%end%>
 </div>

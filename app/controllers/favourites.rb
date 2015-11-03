@@ -10,9 +10,11 @@ delete '/favourites/:product_id' do
 end
 
 get '/users/:user_id/favorites' do
+  @products = Product.where(id: current_user.favourites.pluck(:product_id))
   erb :"users/favourites"
 end
 
 get '/users/products/favourited' do
+  @products = Product.where(id: Favourite.where.not(user_id: current_user.id).pluck(:product_id), user_id: current_user.id)
   erb :"users/favourited"
 end
